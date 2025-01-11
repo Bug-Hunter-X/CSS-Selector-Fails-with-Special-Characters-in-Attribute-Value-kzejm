@@ -1,0 +1,19 @@
+The solution is to ensure proper escaping of special characters within the attribute value itself (if that is within your control), or to use a more robust selector.  For instance, if the `value` is a user-provided string, sanitize and properly escape it before using it in the attribute.  If you can't control the input and the values are unreliable, use a JavaScript solution to add the styles to those elements instead of relying solely on CSS selectors:
+
+```javascript
+const elements = document.querySelectorAll('.my-class');
+elements.forEach(element => {
+  if (element.getAttribute('attr').startsWith('value')) {
+    // Apply styles here
+    element.style.color = 'blue'; 
+  }
+});
+```
+
+Alternatively, you can adjust your CSS to use a less-specific selector or check for the existence of the attribute if the precise beginning of its value isn't crucial:
+
+```css
+.my-class[attr] {
+  /* Styles */
+}
+```

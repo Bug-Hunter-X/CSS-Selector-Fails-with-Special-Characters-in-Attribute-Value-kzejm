@@ -1,0 +1,9 @@
+The following CSS rule uses an invalid selector:
+
+```css
+.my-class[attr^=value] {
+  /* styles */
+}
+```
+
+This selector attempts to select elements with the class `my-class` and an attribute `attr` whose value starts with `value`.  While this is valid in many contexts, it can fail unexpectedly if the attribute value contains special characters (like spaces, quotes, or other characters not properly escaped within the attribute value).
